@@ -1,0 +1,20 @@
+.home-container {
+  display: flex;
+  .all-movies {
+    width: 75%;
+    min-height: calc(100vh - 80px);
+    border-right: 1px solid #fdc827;
+    padding: 20px 40px;
+    font-family: "Roboto", sans-serif;
+  }
+  .popular-movies {
+    width: 25%;
+    min-height: calc(100vh - 80px);
+    padding: 20px 40px;
+    font-family: "Roboto", sans-serif;
+  }
+  .movies-thumbnail {
+    display: flex;
+    justify-content: space-between;
+  }
+}
