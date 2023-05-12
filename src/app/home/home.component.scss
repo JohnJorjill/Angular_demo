@@ -1,10 +1,13 @@
 .home-container {
   display: flex;
+  font-family: "Comic Sans MS", cursive, sans-serif;
   .all-movies {
+    color: white;
     width: 75%;
     min-height: calc(100vh - 80px);
     border-right: 1px solid #fdc827;
     padding: 20px 40px;
+    background-color: maroon;
     font-family: "Roboto", sans-serif;
   }
   .popular-movies {
@@ -16,5 +19,12 @@
   .movies-thumbnail {
     display: flex;
     justify-content: space-between;
+  }
+  .top{
+    text-align: center;
+    margin-bottom: 100px;
+  }
+  .product-name {
+    margin-right: 100px; /* adjust this value to your needs */
   }
 }

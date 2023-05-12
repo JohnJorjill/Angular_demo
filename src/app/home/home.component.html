@@ -3,23 +3,33 @@
   <div class="all-movies">
     <div class="trending-movies">
       <div class="top">
-        <h4>Trending Movies</h4>
-        <div class="view-all">view all</div>
+        <h4>Self Checkout</h4>
       </div>
       <div class="movies-thumbnail">
         <div class="movie" *ngFor="let movie of trendingMovies">
-          <div class="cover" (click)="goToMovie('trending', movie.id)">
-            <img [src]="movie.cover" alt="" />
+          <div class="cover" (click)="onButtonClick(movie)">
+            <img [src]="movie.cover" alt="" width="150" height="150" />
           </div>
           <div class="detail">
             <div class="name">{{ movie.name }}</div>
             <div class="rating">
-              <app-star-rating></app-star-rating>
+              <div class="name">${{ movie.rating }}</div>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="popular-movies"></div>
+  <div class="popular-movies">
+    <p>Cart items:</p>
+    <ul>
+      <li *ngFor="let product of products$ | async">
+        <span class="product-name">{{ product.name }}</span>
+        <span class="product-price">${{ product.price }}</span>
+      </li>
+    </ul>
+    <p>Total: {{ sumPrice$ | async }}</p>
+    <button (click)="onRemoveProduct()">Remove Item</button>
+    <button (click)="onEmptyCart()">Checkout</button>
+  </div>
 </div>

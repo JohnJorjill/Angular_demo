@@ -10,6 +10,11 @@ import { MovieComponent } from './movie/movie.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { FeatureModule } from './feature/feature.module';
+import { StoreModule } from '@ngrx/store';
+import { reducers } from './reducers';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { EffectsModule } from '@ngrx/effects';
+import { AppEffects } from './app.effects';
 
 @NgModule({
   declarations: [
@@ -17,16 +22,19 @@ import { FeatureModule } from './feature/feature.module';
     LoginComponent,
     HomeComponent,
     HeaderComponent,
-    MovieComponent
+    MovieComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    FeatureModule
+    FeatureModule,
+    StoreModule.forRoot(reducers),
+    EffectsModule.forRoot([AppEffects]),
+    StoreDevtoolsModule.instrument(),
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
